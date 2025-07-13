@@ -36,12 +36,14 @@ async def on_member_join(member: discord.Member):
 
 @client.event
 async def on_raw_reaction_add(reaction: discord.RawReactionActionEvent):
-    logger.info(f"MADE IT!")
     if (reaction.message_id == int(REACTION_MESSAGE_ID)) and (reaction.emoji.name in role_id_dict.keys()):
         role = client.get_guild(reaction.guild_id).get_role(int(role_id_dict[reaction.emoji.name]))
         if not role in reaction.member.roles:
             await reaction.member.add_roles(role)
             logger.info(f"User Id {reaction.member.id}, Name {reaction.member.name} recieved {role.name} role")
+        if role in reaction.member.roles:
+            await reaction.member.remove_roles(role)
+            logger.info(f"User Id {reaction.member.id}, Name {reaction.member.name} had the {role.name} role removed")
 
 @client.event
 async def on_error(event, *args, **kwargs):
