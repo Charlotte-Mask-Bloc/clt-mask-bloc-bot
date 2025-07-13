@@ -30,7 +30,7 @@ async def on_ready():
 @client.event
 async def on_member_join(member: discord.Member):
     supporter_role = member.guild.get_role(int(SUPPORTER_ROLE_ID))
-    await reaction.member.add_roles(supporter_role)
+    await member.add_roles(supporter_role)
     await client.get_channel(int(WELCOME_CHANNEL_ID)).send(f"Welcome to Charlotte Mask Bloc, <@{member.id}> 🥳 !" + WELCOME_MESSAGE)
     logger.info(f"User Id {member.id}, Name {member.name} joined, recieved supporter role, and welcome message sent")
 
