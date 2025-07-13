@@ -36,8 +36,7 @@ async def on_member_join(member: discord.Member):
 
 @client.event
 async def on_raw_reaction_add(reaction: discord.RawReactionActionEvent):
-    logger.info(reaction)
-    logger.info(reaction.emoji.name)
+    logger.info(f"reaction: {reaction}")
     if reaction.message_id == int(REACTION_MESSAGE_ID):
         role = client.get_guild(reaction.guild_id).get_role(role_id_dict[reaction.emoji.name])
         if not role in reaction.member.roles:
