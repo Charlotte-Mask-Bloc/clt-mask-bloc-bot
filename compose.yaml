@@ -6,6 +6,7 @@ services:
     deploy:
       mode: global
     restart: always
+    labels: [ "com.centurylinklabs.watchtower.scope=clt-mask-bloc-bot" ]
 
   prod-clt-mask-bloc-bot:
     container_name: prod-clt-mask-bloc-bot
@@ -14,6 +15,7 @@ services:
     deploy:
       mode: global
     restart: always
+    labels: [ "com.centurylinklabs.watchtower.scope=clt-mask-bloc-bot" ]
 
   clt-watchtower:
     container_name: clt-mask-bloc-bot-watchtower
@@ -25,9 +27,12 @@ services:
       - "30"
       - "--cleanup"
       - "true"
+      - "--scope"
+      - "clt-mask-bloc-bot"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     deploy:
       mode: global
     restart: always
+    labels: [ "com.centurylinklabs.watchtower.scope=clt-mask-bloc-bot" ]
 
