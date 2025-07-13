@@ -4,4 +4,4 @@ WORKDIR /code
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY . .
-CMD ["python3", "mask_bloc_bot.py"]
+CMD ["python3", "clt_mask_bloc_bot.py"]

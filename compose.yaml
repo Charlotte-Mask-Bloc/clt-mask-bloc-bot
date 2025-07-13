@@ -1,26 +1,26 @@
 services:
-  dev-mask-bloc-bot:
-    container_name: dev-mask-bloc-bot
-    image: ghcr.io/siobh9/mask-bloc-bot:dev
+  dev-clt-mask-bloc-bot:
+    container_name: dev-clt-mask-bloc-bot
+    image: ghcr.io/Charlotte-Mask-Bloc/clt-mask-bloc-bot:dev
     env_file: .env.dev
     deploy:
       mode: global
     restart: always
 
-  prod-mask-bloc-bot:
-    container_name: prod-mask-bloc-bot
-    image: ghcr.io/siobh9/mask-bloc-bot:prod
+  prod-clt-mask-bloc-bot:
+    container_name: prod-clt-mask-bloc-bot
+    image: ghcr.io/Charlotte-Mask-Bloc/clt-mask-bloc-bot:prod
     env_file: .env.prod
     deploy:
       mode: global
     restart: always
 
-  watchtower:
-    container_name: mask-bloc-bot-watchtower
+  clt-watchtower:
+    container_name: clt-mask-bloc-bot-watchtower
     image: containrrr/watchtower
     command:
-      - "dev-mask-bloc-bot"
-      - "prod-mask-bloc-bot"
+      - "dev-clt-mask-bloc-bot"
+      - "prod-clt-mask-bloc-bot"
       - "--interval"
       - "30"
       - "--cleanup"
