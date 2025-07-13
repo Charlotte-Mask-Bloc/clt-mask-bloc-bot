@@ -20,8 +20,6 @@ client = discord.Client(intents=intents)
 @client.event
 async def on_ready():
     logger.info(f"We have logged in as {client.user}")
-    if not weekly_message.is_running():
-        weekly_message.start()
 
 @client.event
 async def on_member_join(member: discord.Member):
