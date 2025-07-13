@@ -1,7 +1,7 @@
 services:
   dev-clt-mask-bloc-bot:
     container_name: dev-clt-mask-bloc-bot
-    image: ghcr.io/Charlotte-Mask-Bloc/clt-mask-bloc-bot:dev
+    image: ghcr.io/charlotte-mask-bloc/clt-mask-bloc-bot:dev
     env_file: .env.dev
     deploy:
       mode: global
@@ -9,7 +9,7 @@ services:
 
   prod-clt-mask-bloc-bot:
     container_name: prod-clt-mask-bloc-bot
-    image: ghcr.io/Charlotte-Mask-Bloc/clt-mask-bloc-bot:prod
+    image: ghcr.io/charlotte-mask-bloc/clt-mask-bloc-bot:prod
     env_file: .env.prod
     deploy:
       mode: global
