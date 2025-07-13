@@ -1,0 +1,33 @@
+services:
+  dev-mask-bloc-bot:
+    container_name: dev-mask-bloc-bot
+    image: ghcr.io/siobh9/mask-bloc-bot:dev
+    env_file: .env.dev
+    deploy:
+      mode: global
+    restart: always
+
+  prod-mask-bloc-bot:
+    container_name: prod-mask-bloc-bot
+    image: ghcr.io/siobh9/mask-bloc-bot:prod
+    env_file: .env.prod
+    deploy:
+      mode: global
+    restart: always
+
+  watchtower:
+    container_name: mask-bloc-bot-watchtower
+    image: containrrr/watchtower
+    command:
+      - "dev-mask-bloc-bot"
+      - "prod-mask-bloc-bot"
+      - "--interval"
+      - "30"
+      - "--cleanup"
+      - "true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      mode: global
+    restart: always
+
