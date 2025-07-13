@@ -9,7 +9,7 @@ WELCOME_CHANNEL_ID = os.getenv("WELCOME_CHANNEL_ID")
 
 WELCOME_MESSAGE = """
 
-hello!"""
+Please introduce yourself in this channel and then react to this message (https://discord.com/channels/1124093362320978020/1273078383353266177/1273092667760316437) with what you're interested in helping with, we're glad to have you here!"""
 
 logger = logging.getLogger('discord')
 
