@@ -9,7 +9,7 @@ WELCOME_CHANNEL_ID = os.getenv("WELCOME_CHANNEL_ID")
 
 WELCOME_MESSAGE = """
 
-hello!"""
+Please read the message in #about-this-server and introduce yourself in this channel, we're glad to have you here!"""
 
 logger = logging.getLogger('discord')
 
