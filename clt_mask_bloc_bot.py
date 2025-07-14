@@ -4,6 +4,8 @@ import discord, os, logging, time
 TOKEN = os.getenv("TOKEN")
 REACTION_MESSAGE_ID = os.getenv("REACTION_MESSAGE_ID")
 DRIVING_REACTION_ROLE_ID = os.getenv("DRIVING_REACTION_ROLE_ID")
+LOGISTICS_REACTION_ROLE_ID = os.getenv("LOGISTICS_REACTION_ROLE_ID")
+FUNDRAISING_REACTION_ROLE_ID = os.getenv("FUNDRAISING_REACTION_ROLE_ID")
 SUPPORTER_ROLE_ID = os.getenv("SUPPORTER_ROLE_ID")
 WELCOME_CHANNEL_ID = os.getenv("WELCOME_CHANNEL_ID")
 
@@ -18,7 +20,9 @@ intents.members = True
 client = discord.Client(intents=intents)
 
 role_id_dict = {
-    "🚛": DRIVING_REACTION_ROLE_ID
+    "🚛": DRIVING_REACTION_ROLE_ID,
+    "💻": LOGISTICS_REACTION_ROLE_ID,
+    "💸": FUNDRAISING_REACTION_ROLE_ID
 }
 
 # EVENTS
